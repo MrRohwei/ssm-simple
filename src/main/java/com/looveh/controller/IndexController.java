@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -24,6 +25,7 @@ public class IndexController {
 
     @ApiOperation(value = "博客列表")
     @RequestMapping(value = "/list",method = RequestMethod.POST)
+    @ResponseBody
     public BaseResp list(){
         List<BlogListDto> list = Lists.newArrayList();
         for (int i = 1; i <= 5; i++) {
