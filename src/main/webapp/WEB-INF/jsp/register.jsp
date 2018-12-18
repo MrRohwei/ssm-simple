@@ -63,7 +63,7 @@
             alert("您还未输入手机号，请尽快绑定哦！");
         }
         $.ajax({
-            url:"customer/register",
+            url:"sysUser/register",
             type:"POST",
             data:{
                 username:username,

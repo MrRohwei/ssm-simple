@@ -1,6 +1,5 @@
 package com.looveh.controller;
 
-import com.looveh.resp.BaseResp;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

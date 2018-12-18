@@ -7,7 +7,9 @@ public enum ResponseMessageEnum {
 
     EMAIL_HAS_BEAN_BIND("000001","此邮箱已被绑定"),
     PHONE_HAS_BEAN_BIND("000002","此手机号已被绑定"),
-    REGISTER_FAIL("000003","注册失败");
+    REGISTER_FAIL("000003","注册失败"),
+
+    NOT_EXIST_OR_DISABLED("100001","用户不存在或被禁用")
     ;
 
     private String code;

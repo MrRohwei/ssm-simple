@@ -1,6 +1,6 @@
 package com.looveh.service;
 
-import com.looveh.entity.Customer;
+import com.looveh.entity.SysUser;
 
 import java.util.List;
 
@@ -12,7 +12,9 @@ import java.util.List;
  **/
 public interface CustomerService {
 
-    List<Customer> getCustomers(Customer customer);
+    List<SysUser> getCustomers(SysUser sysUser);
 
-    void addCustomer(Customer customer) throws Exception;
+    void addCustomer(SysUser sysUser) throws Exception;
+
+    SysUser login(String username, String password);
 }

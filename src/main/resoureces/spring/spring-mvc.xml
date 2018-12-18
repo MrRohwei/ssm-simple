@@ -49,6 +49,9 @@
     <!--<mvc:resources mapping="/resources/**" location="/resources/page/css" />-->
     <!--<mvc:resources mapping="/resources/**" location="/resources/page/js" />-->
     <!--<mvc:resources mapping="/resources/**" location="/resources/page/images" />-->
+    <mvc:resources mapping="/swagger/**" location="/swagger/" cache-period="31556926"/>
+    <mvc:default-servlet-handler />
+    <bean class="com.looveh.swagger.SwaggerConfig" />
 
 
     <!-- 容器默认的DefaultServletHandler处理 所有静态内容与无RequestMapping处理的URL -->

@@ -1,9 +1,8 @@
 package com.looveh.service.impl;
 
-import com.looveh.dao.CustomerMapper;
-import com.looveh.entity.Customer;
+import com.looveh.dao.SysUserMapper;
+import com.looveh.entity.SysUser;
 import com.looveh.service.CustomerService;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,18 +19,23 @@ import java.util.List;
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
-    private CustomerMapper customerMapper;
+    private SysUserMapper sysUserMapper;
 
     @Override
-    public List<Customer> getCustomers(Customer customer) {
-        return customerMapper.selectByExample(customer);
+    public List<SysUser> getCustomers(SysUser sysUser) {
+        return sysUserMapper.selectByExample(sysUser);
     }
 
     @Override
-    public void addCustomer(Customer customer){
-        customer.setCreatetime(new Date());
-        customer.setUpdatetime(new Date());
-        customer.setGender("保密");
-        customerMapper.insert(customer);
+    public void addCustomer(SysUser sysUser){
+        sysUser.setCreatetime(new Date());
+        sysUser.setUpdatetime(new Date());
+        sysUser.setGender("保密");
+        sysUserMapper.insert(sysUser);
+    }
+
+    @Override
+    public SysUser login(String username, String password) {
+        return null;
     }
 }
