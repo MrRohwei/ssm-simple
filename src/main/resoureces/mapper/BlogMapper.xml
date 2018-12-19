@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.looveh.dao.BlogMapper">
+  <resultMap id="BaseResultMap" type="com.looveh.entity.Blog">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="read_count" jdbcType="INTEGER" property="readCount" />
+    <result column="like_count" jdbcType="INTEGER" property="likeCount" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_recommend" jdbcType="VARCHAR" property="isRecommend" />
+    <result column="is_show" jdbcType="VARCHAR" property="isShow" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, title, content, user_id, read_count, like_count, create_time, update_time, is_recommend, is_show
+  </sql>
+
+  <select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from blog
+    where id = #{id}
+  </select>
+
+  <select id="findByBlog" parameterType="com.looveh.entity.Blog" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from blog
+    where 1=1
+    <if test="title != null and title != ''">
+      and title like concat('%',#{title},'%')
+    </if>
+    <if test="createTime != null and createTime != ''">
+      and create_time like concat('%',#{createTime},'%')
+    </if>
+    <if test="updateTime != null and updateTime != ''">
+      and update_time like concat('%',#{updateTime},'%')
+    </if>
+    <if test="isRecommend != null and isRecommend != ''">
+      and is_recommend = #{isRecommend}
+    </if>
+    <if test="isShow != null and isShow != ''">
+      and is_show = #{isShow}
+    </if>
+  </select>
+
+  <insert id="insert" parameterType="java.lang.Integer" useGeneratedKeys="true" keyProperty="id">
+    insert into blog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        id,user_id,read_count,like_count,
+      <if test="title != null and title != ''">
+        title,
+      </if>
+      <if test="content != null and content != ''">
+        content,
+      </if>
+      <if test="createTime != null and createTime != ''">
+        create_time,
+      </if>
+      <if test="updateTime != null and updateTime != ''">
+        update_time,
+      </if>
+      <if test="isRecommend != null and isRecommend != ''">
+        is_recommend,
+      </if>
+      <if test="isShow != null and isShow != ''">
+        is_show,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      id,userId,readCount,likeCount,
+      <if test="title != null and title != ''">
+        #{title},
+      </if>
+      <if test="content != null and content != ''">
+        #{content},
+      </if>
+      <if test="createTime != null and createTime != ''">
+        #{createTime},
+      </if>
+      <if test="updateTime != null and updateTime != ''">
+        #{updateTime},
+      </if>
+      <if test="isRecommend != null and isRecommend != ''">
+        #{isRecommend},
+      </if>
+      <if test="isShow != null and isShow != ''">
+        #{isShow},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="update" parameterType="com.looveh.entity.Blog">
+    update blog
+    <set>
+      <if test="title != null and title != ''">
+        title = #{title},
+      </if>
+      <if test="content != null and content != ''">
+        content = #{content},
+      </if>
+      <if test="isRecommend != null and isRecommend != ''">
+        is_recommend = #{isRecommend},
+      </if>
+      <if test="isShow != null and isShow != ''">
+        is_show = #{isShow},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+</mapper>

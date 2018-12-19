@@ -76,7 +76,8 @@
         updatetime,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
