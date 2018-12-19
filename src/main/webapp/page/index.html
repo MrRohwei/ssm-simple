@@ -14,11 +14,17 @@
 <script src="/page/js/modernizr.js"></script>
 <![endif]-->
 <script type="text/javascript" src="/page/js/jquery.js"></script>
+<script type="text/javascript" src="/page/js/jquery-3.2.1/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript" src="/page/js/blog/index.js"></script>
 </head>
 <body>
 <script>
 window.onload = function ()
 {
+    //所有博客
+    INDEX.getBlogList();
+
 	var oH2 = document.getElementsByTagName("h2")[0];
 	var oUl = document.getElementsByTagName("ul")[0];
 	oH2.onclick = function ()
@@ -28,6 +34,7 @@ window.onload = function ()
 		oH2.className = style.display == "block" ? "open" : ""
 	}
 }
+
 </script>
 <div id="wrapper">
   <header>
@@ -117,52 +124,17 @@ window.onload = function ()
   <div class="container">
     <div class="bloglist f_l">
      
-     <ul>
-     <li>
-        <h3 class="blogtitle"><span><a href="/jstt/css3/" title="css3" target="_blank" class="classname">个人博客</a></span><a href="/jstt/css3/2018-03-26/812.html" target="_blank">帝国cms 首页或者列表无图，不使用默认图片的方法</a></h3>
-        <div class="bloginfo"><span class="blogpic"><a href="/jstt/css3/2018-03-26/812.html" title="帝国cms 首页或者列表无图，不使用默认图片的方法"><img src="/page/images/01.jpg" alt="帝国cms 首页或者列表无图，不使用默认图片的方法"></a></span>
-          <p>帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
-        </div>
-        <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-03-26</span><span class="viewnum f_l">浏览（<a href="/">1429</a>）</span><span class="f_r"><a href="/jstt/css3/2018-03-26/812.html" class="more">阅读原文&gt;&gt;</a></span></div>
-   
-      </li>
+     <ul id="bloglistul">
+     <!--<li>-->
+        <!--<h3 class="blogtitle"><span><a href="/jstt/css3/" title="css3" target="_blank" class="classname">个人博客</a></span><a href="/jstt/css3/2018-03-26/812.html" target="_blank">帝国cms 首页或者列表无图，不使用默认图片的方法</a></h3>-->
+        <!--<div class="bloginfo"><span class="blogpic"><a href="/jstt/css3/2018-03-26/812.html" title="帝国cms 首页或者列表无图，不使用默认图片的方法"><img src="/page/images/01.jpg" alt="帝国cms 首页或者列表无图，不使用默认图片的方法"></a></span>-->
+          <!--<p>帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>-->
+        <!--</div>-->
+        <!--<div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-03-26</span><span class="viewnum f_l">浏览（<a href="/">1429</a>）</span><span class="f_r"><a href="/jstt/css3/2018-03-26/812.html" class="more">阅读原文&gt;&gt;</a></span></div>-->
+   <!---->
+      <!--</li>-->
      
-     <li>
-        <h3 class="blogtitle"><span><a href="/jstt/css3/" title="css3" target="_blank" class="classname">个人博客</a></span><a href="/jstt/css3/2018-03-26/812.html" target="_blank">帝国cms 首页或者列表无图，不使用默认图片的方法</a></h3>
-        <div class="bloginfo"><span class="blogpic"><a href="/jstt/css3/2018-03-26/812.html" title="帝国cms 首页或者列表无图，不使用默认图片的方法"><img src="/page/images/01.jpg" alt="帝国cms 首页或者列表无图，不使用默认图片的方法"></a></span>
-          <p>帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
-        </div>
-        <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-03-26</span><span class="viewnum f_l">浏览（<a href="/">1429</a>）</span><span class="f_r"><a href="/jstt/css3/2018-03-26/812.html" class="more">阅读原文&gt;&gt;</a></span></div>
-   
-      </li><li>
-        <h3 class="blogtitle"><span><a href="/jstt/css3/" title="css3" target="_blank" class="classname">个人博客</a></span><a href="/jstt/css3/2018-03-26/812.html" target="_blank">帝国cms 首页或者列表无图，不使用默认图片的方法</a></h3>
-        <div class="bloginfo">
-          <p>帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
-        </div>
-        <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-03-26</span><span class="viewnum f_l">浏览（<a href="/">1429</a>）</span><span class="f_r"><a href="/jstt/css3/2018-03-26/812.html" class="more">阅读原文&gt;&gt;</a></span></div>
-   
-      </li><li>
-        <h3 class="blogtitle"><span><a href="/jstt/css3/" title="css3" target="_blank" class="classname">个人博客</a></span><a href="/jstt/css3/2018-03-26/812.html" target="_blank">帝国cms 首页或者列表无图，不使用默认图片的方法</a></h3>
-        <div class="bloginfo"><span class="blogpic"><a href="/jstt/css3/2018-03-26/812.html" title="帝国cms 首页或者列表无图，不使用默认图片的方法"><img src="/page/images/01.jpg" alt="帝国cms 首页或者列表无图，不使用默认图片的方法"></a></span>
-          <p>帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
-        </div>
-        <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-03-26</span><span class="viewnum f_l">浏览（<a href="/">1429</a>）</span><span class="f_r"><a href="/jstt/css3/2018-03-26/812.html" class="more">阅读原文&gt;&gt;</a></span></div>
-   
-      </li><li>
-        <h3 class="blogtitle"><span><a href="/jstt/css3/" title="css3" target="_blank" class="classname">个人博客</a></span><a href="/jstt/css3/2018-03-26/812.html" target="_blank">帝国cms 首页或者列表无图，不使用默认图片的方法</a></h3>
-        <div class="bloginfo"><span class="blogpic"><a href="/jstt/css3/2018-03-26/812.html" title="帝国cms 首页或者列表无图，不使用默认图片的方法"><img src="/page/images/01.jpg" alt="帝国cms 首页或者列表无图，不使用默认图片的方法"></a></span>
-          <p>帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
-        </div>
-        <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-03-26</span><span class="viewnum f_l">浏览（<a href="/">1429</a>）</span><span class="f_r"><a href="/jstt/css3/2018-03-26/812.html" class="more">阅读原文&gt;&gt;</a></span></div>
-   
-      </li><li>
-        <h3 class="blogtitle"><span><a href="/jstt/css3/" title="css3" target="_blank" class="classname">个人博客</a></span><a href="/jstt/css3/2018-03-26/812.html" target="_blank">帝国cms 首页或者列表无图，不使用默认图片的方法</a></h3>
-        <div class="bloginfo"><span class="blogpic"><a href="/jstt/css3/2018-03-26/812.html" title="帝国cms 首页或者列表无图，不使用默认图片的方法"><img src="/page/images/01.jpg" alt="帝国cms 首页或者列表无图，不使用默认图片的方法"></a></span>
-          <p>帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
-        </div>
-        <div class="autor"><span class="lm f_l"></span><span class="dtime f_l">2018-03-26</span><span class="viewnum f_l">浏览（<a href="/">1429</a>）</span><span class="f_r"><a href="/jstt/css3/2018-03-26/812.html" class="more">阅读原文&gt;&gt;</a></span></div>
-   
-      </li>
+
     </ul> 
      
      
