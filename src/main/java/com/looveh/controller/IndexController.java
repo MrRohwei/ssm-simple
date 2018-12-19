@@ -41,4 +41,12 @@ public class IndexController {
         }
         return BaseResp.succ(list);
     }
+
+    @ApiOperation(value = "图文推荐")
+    @RequestMapping(value = "graphicRecommend",method = RequestMethod.POST)
+    @ResponseBody
+    public BaseResp graphicRecommend(){
+
+        return BaseResp.succ();
+    }
 }

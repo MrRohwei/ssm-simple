@@ -19,7 +19,7 @@ public class MailUtil {
 
     private static final String FROM = "965556351@qq.com";
     private static final String TO = "1203182685@qq.com";
-    private static final String PASSWORD = "looveh1006";
+    private static final String PASSWORD = "";
 
     public static void main(String[] args) throws MessagingException {
         Properties prop = new Properties();
